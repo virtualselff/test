@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dad Gallery Widget</title>
   <style>
-    /* Clean, minimal styling for the widget */
     body {
       margin: 0;
       padding: 0;
@@ -38,10 +37,7 @@
   <script>
     (async function() {
       const container = document.getElementById('widget-container');
-      
-      // Your dad.gallery user URL
       const targetUrl = 'https://dad.gallery/users/10058/submissions';
-      // Using a CORS proxy (this works inside the iframe because it's not on Neocities)
       const proxyUrl = 'https://api.allorigins.win/raw?url=';
 
       try {
@@ -49,7 +45,6 @@
         if (!response.ok) throw new Error('Failed to fetch');
         const html = await response.text();
 
-        // Parse the HTML
         const parser = new DOMParser();
         const doc = parser.parseFromString(html, 'text/html');
         const element = doc.querySelector('.submissionIcon');
@@ -59,7 +54,6 @@
           return;
         }
 
-        // Fix all links to be absolute and open in new tabs
         element.querySelectorAll('a').forEach(link => {
           let href = link.getAttribute('href');
           if (href && !href.startsWith('http://') && !href.startsWith('https://')) {
@@ -70,9 +64,8 @@
           link.setAttribute('title', 'View my latest art on dad.gallery');
         });
 
-        // Insert the fetched content
         container.innerHTML = element.outerHTML;
-        container.className = ''; // Remove error styling
+        container.className = '';
 
       } catch (error) {
         console.error('Widget error:', error);
