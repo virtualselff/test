@@ -18,6 +18,36 @@
             font-size: 45px;
             -webkit-text-stroke: 0.1px #04072c;
         }
+       /* Scrollbar Customization */
+body::-webkit-scrollbar {
+  width: 15px;  
+  height: 15px; 
+}
+
+body::-webkit-scrollbar-track {
+  background: #fafdff;
+  border-radius: 4px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #66b0ff;
+  border-radius: 4px;
+  border: 2px solid #fafdff; 
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: #587cd0;
+}
+
+body::-webkit-scrollbar-thumb:active {
+  background: #c2e6ff;
+}
+
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #66b0ff #fafdff;
+}
     }
   </style>
 
